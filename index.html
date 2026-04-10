@@ -1,0 +1,13 @@
+<div id="header"></div>
+<div id="content"></div>
+
+<script>
+Promise.all([
+  fetch('https://192.168.1.102:8000/header.html').then(res => res.text()),
+  fetch('https://192.168.1.102:8000/body.html').then(res => res.text())
+])
+.then(([headerHTML, bodyHTML]) => {
+  document.getElementById('header').innerHTML = headerHTML;
+  document.getElementById('content').innerHTML = bodyHTML;
+});
+</script>
